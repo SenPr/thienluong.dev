@@ -1,6 +1,6 @@
 # thienluong.dev
 
-Personal portfolio and writing site for Thien Luong, an aspiring software engineer. The site is a place to share selected projects, notes, and the work behind them.
+Personal portfolio and writing site for myself. The site is a place to share selected projects, notes, and the work I have done.
 
 ## What's inside
 
