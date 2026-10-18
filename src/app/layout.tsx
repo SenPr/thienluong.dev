@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Thien Luong — Developer & Builder",
-  description: "A portfolio of thoughtful software, product design, and notes from the process.",
+  title: "Thien Luong - Developer",
+  description: "Thien Luong personal portfolio",
+  icons: {
+    icon: "/car.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

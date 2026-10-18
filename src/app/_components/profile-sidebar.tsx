@@ -1,3 +1,5 @@
+"use client";
+
 const navigationItems = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
@@ -22,14 +24,22 @@ export function ProfileSidebar() {
           <p className="mt-7 max-w-sm text-base leading-7 text-text-muted">
             I build things!
           </p>
-          <a href="/resume.pdf" download className="mt-10 inline-flex border border-accent-primary/50 px-4 py-3 text-sm text-accent-primary transition-colors hover:bg-accent-primary hover:text-background-dark">
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="mt-10 inline-flex border border-accent-primary/50 px-4 py-3 text-sm text-accent-primary transition-colors hover:bg-accent-primary hover:text-background-dark">
             View / download resume <span aria-hidden="true" className="ml-3">↓</span>
           </a>
         </div>
         <nav aria-label="Page sections" className="relative mt-16 hidden lg:block">
           <div className="space-y-3 border-l border-text-primary/15 pl-5">
             {navigationItems.map((item) => (
-              <a key={item.href} href={item.href} className="block text-sm text-text-muted transition-colors hover:text-accent-primary">
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(event) => {
+                  event.preventDefault();
+                  document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="block text-sm text-text-muted transition-colors hover:text-accent-primary"
+              >
                 {item.label}
               </a>
             ))}
