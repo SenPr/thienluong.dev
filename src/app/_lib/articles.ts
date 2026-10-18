@@ -29,8 +29,6 @@ export function formatArticleDate(date: string) {
 }
 
 async function getArticleSlugs() {
-  "use cache";
-
   const files = await fs.readdir(articlesDirectory);
 
   return files
@@ -39,8 +37,6 @@ async function getArticleSlugs() {
 }
 
 export async function getArticles(): Promise<ArticleSummary[]> {
-  "use cache";
-
   const slugs = await getArticleSlugs();
   const articles = await Promise.all(slugs.map((slug) => getArticleBySlug(slug)));
 
@@ -50,8 +46,6 @@ export async function getArticles(): Promise<ArticleSummary[]> {
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article> {
-  "use cache";
-
   const filePath = path.join(articlesDirectory, `${slug}.mdx`);
   const source = await fs.readFile(filePath, "utf8");
   const { data, content } = matter(source);
